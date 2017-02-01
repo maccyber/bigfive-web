@@ -1,0 +1,15 @@
+{
+  "name": "next-bigfive-web",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "2.2.1",
+    "next": "1.2.3"
+  },
+  "author": "",
+  "license": "ISC"
+}
