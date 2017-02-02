@@ -1,6 +1,30 @@
 {
   "name": "next-bigfive-web",
   "version": "1.0.0",
+  "description": "Website for bigfive personality test using next.js",
+  "license": "ISC",
+  "author": "",
+  "keywords": [
+    "bigfive",
+    "personality",
+    "IPIP"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/maccyber/bigfive-web.git"
+  },
+  "bugs": {
+    "url": "http://github.com/maccyber/bigfive-web/issues"
+  },
+  "devDependencies": {
+    "standard": "8.6.0"
+  },
+  "now": {
+    "alias": "bigfive.now.sh",
+    "engines": {
+      "node": "7.0.0"
+    }
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -9,7 +33,5 @@
   "dependencies": {
     "isomorphic-fetch": "2.2.1",
     "next": "1.2.3"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }

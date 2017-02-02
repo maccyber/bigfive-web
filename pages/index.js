@@ -1,14 +1,14 @@
 'use strict'
 
 import React from 'react'
-import Questions from '../components/questions'
+import TheTest from '../components/thetest'
 import Page from '../layouts'
 
 export default class Index extends React.Component {
   render () {
     return (
       <Page pageTitle='Personality test'>
-        <Questions />
+        <TheTest />
       </Page>
     )
   }
