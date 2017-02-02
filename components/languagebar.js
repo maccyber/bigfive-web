@@ -1,10 +1,13 @@
 import React from 'react'
 
-export default ({switchLanguage, selectedLanguage}) => (
+export default ({switchLanguage, selectedLanguage, languages}) => (
   <div>
     Language:
-    <span name='en' onClick={switchLanguage} className={selectedLanguage === 'en' ? 'langSelected' : 'lang'}>en</span>
-    <span name='no' onClick={switchLanguage} className={selectedLanguage === 'no' ? 'langSelected' : 'lang'}>no</span>
+    {languages.map(l => {
+      return (
+       <span key={l} name={l} onClick={switchLanguage} className={selectedLanguage === l ? 'langSelected' : 'lang'}>{l}</span>
+      )
+    })}
     <style>
       {`
         .lang {

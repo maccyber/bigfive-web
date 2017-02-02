@@ -14,6 +14,7 @@ export default class TheTest extends React.Component {
       data: [],
       choises: [],
       questions: [],
+      languages: [],
       radios: [],
       lang: config.defaultLanguage,
       submitDisabled: true
@@ -26,7 +27,7 @@ export default class TheTest extends React.Component {
 
   async componentDidMount () {
     const data = await getData(`${config.dataUrl}?lang=${this.state.lang}`)
-    this.setState({ data: data, questions: data.questions, choises: data.choises })
+    this.setState({ data: data, questions: data.questions, choises: data.choises, languages: data.languages })
   }
 
   handleRadioChange (e) {
@@ -63,7 +64,7 @@ export default class TheTest extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <Languagebar switchLanguage={this.switchLanguage} selectedLanguage={this.state.lang} />
+        <Languagebar switchLanguage={this.switchLanguage} selectedLanguage={this.state.lang} languages={this.state.languages}  />
         <Progressbar progress={this.state.data.percentDone} />
         {this.state.questions.map(q => {
           return (

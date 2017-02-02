@@ -23,6 +23,9 @@ export default ({pageTitle, children}) => (
           .header {
             display: none;
           }
+          .choiseBox {
+            display: block;
+          }
         }
         body {
           font-family: 'Rubik', sans-serif;
