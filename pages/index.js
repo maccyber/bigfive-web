@@ -7,7 +7,7 @@ import Page from '../layouts'
 export default class Index extends React.Component {
   render () {
     return (
-      <Page pageTitle='Personality test'>
+      <Page pageTitle='BigFive Personality Test'>
         <TheTest />
       </Page>
     )

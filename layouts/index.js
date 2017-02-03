@@ -56,7 +56,7 @@ export default ({pageTitle, children}) => (
           margin: auto;
         }
         .header {
-          background: #7e97af;
+          background: #9a9a9a;
           padding-left: 2%;
           padding-top: 7px;
           padding-bottom: 7px;

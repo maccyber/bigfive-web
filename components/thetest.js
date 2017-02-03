@@ -6,6 +6,7 @@ import Progressbar from './progressbar'
 import Questions from './questions'
 import Languagebar from './languagebar'
 import Navbuttons from './navbuttons'
+import TimerExample from './timer'
 
 export default class TheTest extends React.Component {
   constructor (props) {
@@ -17,7 +18,8 @@ export default class TheTest extends React.Component {
       languages: [],
       radios: [],
       lang: config.defaultLanguage,
-      submitDisabled: true
+      submitDisabled: true,
+      now: Date.now()
     }
     this.handleRadioChange = this.handleRadioChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -56,6 +58,7 @@ export default class TheTest extends React.Component {
     if (this.state.data.next) {
       const data = await getData(`${this.state.data.next}&lang=${this.state.lang}`)
       this.setState({ data: data, questions: data.questions, submitDisabled: true })
+      window.scrollTo(0, 0) // Scrolls to top of page
     } else {
       console.log('finished. do something')
     }
@@ -64,7 +67,8 @@ export default class TheTest extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <Languagebar switchLanguage={this.switchLanguage} selectedLanguage={this.state.lang} languages={this.state.languages}  />
+        <TimerExample start={this.state.now} />
+        <Languagebar switchLanguage={this.switchLanguage} selectedLanguage={this.state.lang} languages={this.state.languages} />
         <Progressbar progress={this.state.data.percentDone} />
         {this.state.questions.map(q => {
           return (
@@ -96,6 +100,12 @@ export default class TheTest extends React.Component {
           }
           .choiseBox:hover {
             cursor: pointer;
+          }
+          .checked {
+            color: #bbbbbb;
+          }
+          .timer {
+            float: right;
           }
       `}</style>
       </form>

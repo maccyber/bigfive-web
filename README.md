@@ -11,7 +11,7 @@ Using next.js framework and [micro](https://github.com/zeit/micro)services
   * [micro-bigfive-evaluator](https://github.com/maccyber/micro-bigfive-evaluator)
 
 ## Example
-See https://next-bigfive-web-tnkuzezqgi.now.sh (not finished)
+See https://next-bigfive-web-qkzlytivqy.now.sh/ (not finished)
 
 ## Deploy using [Now](https://zeit.co/now)
 

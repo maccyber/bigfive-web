@@ -5,7 +5,7 @@ export default ({switchLanguage, selectedLanguage, languages}) => (
     Language:
     {languages.map(l => {
       return (
-       <span key={l} name={l} onClick={switchLanguage} className={selectedLanguage === l ? 'langSelected' : 'lang'}>{l}</span>
+        <span key={l} name={l} onClick={switchLanguage} className={selectedLanguage === l ? 'langSelected' : 'lang'}>{l}</span>
       )
     })}
     <style>
