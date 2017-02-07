@@ -18,6 +18,7 @@ export default class TheTest extends React.Component {
       languages: [],
       radios: [],
       lang: config.defaultLanguage,
+      choosenTest: config.defaultTest,
       submitDisabled: true,
       now: Date.now()
     }
@@ -28,7 +29,7 @@ export default class TheTest extends React.Component {
   }
 
   async componentDidMount () {
-    const data = await getData(`${config.dataUrl}?lang=${this.state.lang}`)
+    const data = await getData(`${config.dataUrl}?lang=${this.state.lang}&testType=${this.state.choosenTest}`)
     this.setState({ ...data, loading: 'Not' })
   }
 
@@ -42,13 +43,13 @@ export default class TheTest extends React.Component {
 
   async switchLanguage (e) {
     const lang = e.target.getAttribute('name')
-    const data = await getData(`${config.dataUrl}?page=${this.state.page}&lang=${lang}`)
+    const data = await getData(`${config.dataUrl}?page=${this.state.page}&lang=${lang}&testType=${this.state.choosenTest}`)
     this.setState({ ...data, lang: lang })
   }
 
   async prevPage (e) {
     if (this.state.previous) {
-      const data = await getData(`${this.state.previous}&lang=${this.state.lang}`)
+      const data = await getData(`${this.state.previous}&lang=${this.state.lang}&testType=${this.state.choosenTest}`)
       this.setState({ ...data, submitDisabled: false })
     }
   }
@@ -56,7 +57,7 @@ export default class TheTest extends React.Component {
   async handleSubmit (e) {
     e.preventDefault()
     if (this.state.next) {
-      const data = await getData(`${this.state.next}&lang=${this.state.lang}`)
+      const data = await getData(`${this.state.next}&lang=${this.state.lang}&testType=${this.state.choosenTest}`)
       this.setState({ ...data, submitDisabled: true })
       window.scrollTo(0, 0) // Scrolls to top of page
       console.log(this.state.radios)
