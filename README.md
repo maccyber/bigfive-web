@@ -7,12 +7,12 @@
 
 Website for five factor model of personality based on work at https://github.com/kholia/IPIP-NEO-PI
 
-Using next.js framework and [micro](https://github.com/zeit/micro)services 
+Using [next.js](https://github.com/zeit/next.js) framework and [micro](https://github.com/zeit/micro) services: 
   * [micro-bigfive-questions](https://github.com/maccyber/micro-bigfive-questions)
   * [micro-bigfive-evaluator](https://github.com/maccyber/micro-bigfive-evaluator)
 
 ## Example
-See https://next-bigfive-web-qkzlytivqy.now.sh/ (not finished)
+See https://bigfive.maccyber.io (not finished)
 
 ## Deploy using [Now](https://zeit.co/now)
 
