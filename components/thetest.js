@@ -12,7 +12,7 @@ export default class TheTest extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: [],
+      loading: '',
       choises: [],
       questions: [],
       languages: [],
@@ -29,36 +29,37 @@ export default class TheTest extends React.Component {
 
   async componentDidMount () {
     const data = await getData(`${config.dataUrl}?lang=${this.state.lang}`)
-    this.setState({ data: data, questions: data.questions, choises: data.choises, languages: data.languages })
+    this.setState({ ...data, loading: 'Not' })
   }
 
   handleRadioChange (e) {
     let arr = this.state.radios
     arr[e.currentTarget.getAttribute('name')] = e.currentTarget.getAttribute('value')
     this.setState({radios: arr})
-    const allChecked = isAllChecked(arr, this.state.data.from, this.state.data.to)
+    const allChecked = isAllChecked(arr, this.state.from, this.state.to)
     this.setState({submitDisabled: !allChecked})
   }
 
   async switchLanguage (e) {
     const lang = e.target.getAttribute('name')
-    const data = await getData(`${config.dataUrl}?page=${this.state.data.page}&lang=${lang}`)
-    this.setState({ data: data, questions: data.questions, lang: lang, choises: data.choises })
+    const data = await getData(`${config.dataUrl}?page=${this.state.page}&lang=${lang}`)
+    this.setState({ ...data, lang: lang })
   }
 
   async prevPage (e) {
-    if (this.state.data.previous) {
-      const data = await getData(`${this.state.data.previous}&lang=${this.state.lang}`)
-      this.setState({ data: data, questions: data.questions, submitDisabled: false })
+    if (this.state.previous) {
+      const data = await getData(`${this.state.previous}&lang=${this.state.lang}`)
+      this.setState({ ...data, submitDisabled: false })
     }
   }
 
   async handleSubmit (e) {
     e.preventDefault()
-    if (this.state.data.next) {
-      const data = await getData(`${this.state.data.next}&lang=${this.state.lang}`)
-      this.setState({ data: data, questions: data.questions, submitDisabled: true })
+    if (this.state.next) {
+      const data = await getData(`${this.state.next}&lang=${this.state.lang}`)
+      this.setState({ ...data, submitDisabled: true })
       window.scrollTo(0, 0) // Scrolls to top of page
+      console.log(this.state.radios)
     } else {
       console.log('finished. do something')
     }
@@ -69,13 +70,14 @@ export default class TheTest extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <TimerExample start={this.state.now} />
         <Languagebar switchLanguage={this.switchLanguage} selectedLanguage={this.state.lang} languages={this.state.languages} />
-        <Progressbar progress={this.state.data.percentDone} />
+        <Progressbar progress={this.state.percentDone} />
+        <span className={'loading' + this.state.loading}><big>LOADING ...</big></span>
         {this.state.questions.map(q => {
           return (
-            <Questions key={q.id} id={q.id} text={q.text} choises={this.state.choises} radioSelected={this.state.radios} handleRadioChange={this.handleRadioChange} />
+            <Questions key={'Q' + q.id} {...q} radioSelected={this.state.radios} handleRadioChange={this.handleRadioChange} />
           )
         })}
-        <Navbuttons prevPage={this.prevPage} previous={this.state.data.previous} submitDisabled={this.state.submitDisabled} />
+        <Navbuttons prevPage={this.prevPage} previous={this.state.previous} submitDisabled={this.state.submitDisabled} />
         <style>{`
           .navButton {
             background-color: #94d696;
@@ -101,11 +103,30 @@ export default class TheTest extends React.Component {
           .choiseBox:hover {
             cursor: pointer;
           }
-          .checked {
-            color: #bbbbbb;
+          .checked-1 {
+            color: #e48585;
+          }
+          .checked-2 {
+            color: #e0b8b8;
+          }
+          .checked-3 {
+            color: #d3d898;
+          }
+          .checked-4 {
+            color: #bddebe;
+          }
+          .checked-5 {
+            color: #94d695;
           }
           .timer {
             float: right;
+          }
+          .loading {
+            font-size: 40px;
+            line-height: 200px;
+          }
+          .loadingNot {
+            display: none;
           }
       `}</style>
       </form>

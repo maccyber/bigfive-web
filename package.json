@@ -20,7 +20,7 @@
     "standard": "8.6.0"
   },
   "now": {
-    "alias": "bigfive.now.sh",
+    "alias": "bigfive.maccyber.io",
     "engines": {
       "node": "7.0.0"
     }
