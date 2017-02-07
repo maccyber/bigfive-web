@@ -34,10 +34,13 @@ export default class TheTest extends React.Component {
   }
 
   handleRadioChange (e) {
-    let arr = this.state.radios
-    arr[e.currentTarget.getAttribute('name')] = e.currentTarget.getAttribute('value')
-    this.setState({radios: arr})
-    const allChecked = isAllChecked(arr, this.state.from, this.state.to)
+    let radioStore = this.state.radios
+    const selectedName = parseInt(e.currentTarget.getAttribute('name'))
+    const selectedValue = parseInt(e.currentTarget.getAttribute('value'))
+    const {domain, facet} = this.state.questions.filter(c => c.id === selectedName)[0]
+    radioStore[selectedName] = {value: selectedValue, domain: domain, facet: facet}
+    this.setState({radios: radioStore})
+    const allChecked = isAllChecked(radioStore, this.state.from, this.state.to)
     this.setState({submitDisabled: !allChecked})
   }
 
