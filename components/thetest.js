@@ -38,7 +38,7 @@ export default class TheTest extends React.Component {
     const selectedName = parseInt(e.currentTarget.getAttribute('name'))
     const selectedValue = parseInt(e.currentTarget.getAttribute('value'))
     const {domain, facet} = this.state.questions.filter(c => c.id === selectedName)[0]
-    radioStore[selectedName] = {value: selectedValue, domain: domain, facet: facet}
+    radioStore[selectedName] = {score: selectedValue, domain: domain, facet: facet}
     this.setState({radios: radioStore})
     const allChecked = isAllChecked(radioStore, this.state.from, this.state.to)
     this.setState({submitDisabled: !allChecked})
@@ -63,8 +63,9 @@ export default class TheTest extends React.Component {
       const data = await getData(`${this.state.next}&lang=${this.state.lang}&testType=${this.state.choosenTest}`)
       this.setState({ ...data, submitDisabled: true })
       window.scrollTo(0, 0) // Scrolls to top of page
-      console.log(this.state.radios)
     } else {
+      console.log('To be posted')
+      console.log(JSON.stringify(this.state.radios, null, 2))
       console.log('finished. do something')
     }
   }

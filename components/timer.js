@@ -9,7 +9,7 @@ export default class Timer extends React.Component {
     this.tick = this.tick.bind(this)
   }
   componentDidMount () {
-    this.timer = setInterval(this.tick, 50)
+    this.timer = setInterval(this.tick, 500)
   }
   componentWillUnmount () {
     clearInterval(this.timer)
