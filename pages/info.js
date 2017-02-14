@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import TheTest from '../components/thetest'
+import PersonInfo from '../components/person-info'
 import Page from '../layouts'
 
 export default class Index extends React.Component {
@@ -14,7 +14,7 @@ export default class Index extends React.Component {
   render () {
     return (
       <Page pageTitle='BigFive Personality Test'>
-        <TheTest userAgent={this.props.userAgent} ip={this.props.ip} />
+        <PersonInfo userAgent={this.props.userAgent} ip={this.props.ip} />
       </Page>
     )
   }

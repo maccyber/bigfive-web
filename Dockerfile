@@ -23,6 +23,11 @@ WORKDIR "/src"
 
 # Env variables
 ENV SERVER_PORT 3000
+ENV DATA_URL https://micro-bigfive-questions-olegrjzdba.now.sh/getQuestions
+ENV GENERATOR_URL https://micro-bigfive-generator.maccyber.io/post
+ENV DEFAULT_LANG en
+ENV DEFAULT_LIMIT 5
+ENV DEFAULT_TEST 50
 
 # Install dependencies
 RUN npm install --production

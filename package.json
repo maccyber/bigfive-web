@@ -31,7 +31,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "isomorphic-fetch": "2.2.1",
+    "axios": "0.15.3",
+    "country-list": "1.1.0",
     "next": "1.2.3"
   }
 }

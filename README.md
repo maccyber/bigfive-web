@@ -9,7 +9,10 @@ Website for five factor model of personality based on work at https://github.com
 
 Using [next.js](https://github.com/zeit/next.js) framework and [micro](https://github.com/zeit/micro) services: 
   * [micro-bigfive-questions](https://github.com/maccyber/micro-bigfive-questions)
+  * [micro-bigfive-results-generator](https://github.com/maccyber/micro-bigfive-results-generator)
   * [micro-bigfive-evaluator](https://github.com/maccyber/micro-bigfive-evaluator)
+  * [micro-bigfive-results](https://github.com/maccyber/micro-bigfive-results)
+  * [micro-bigfive-save](https://github.com/maccyber/micro-bigfive-save)
 
 ## Example
 See https://bigfive.maccyber.io (not finished)
