@@ -22,7 +22,7 @@ export default class TheTest extends React.Component {
       lang: config.defaultLanguage,
       choosenTest: props.test || config.defaultTest,
       submitDisabled: true,
-      now: Date.now(),
+      now: Date.now()
     }
     this.handleRadioChange = this.handleRadioChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -69,7 +69,7 @@ export default class TheTest extends React.Component {
       console.log('To be posted')
       this.state.radios.shift()
       const answers = {
-        timeElapsed:  Math.round((this.state.now - Date.now()) / 1000),
+        timeElapsed: Math.round((this.state.now - Date.now()) / 1000),
         ip: this.props.ip,
         browserAgent: this.props.browserAgent,
         lang: this.state.lang,
@@ -79,7 +79,7 @@ export default class TheTest extends React.Component {
       }
       console.log(JSON.stringify(answers, null, 2))
       const postRes = await postData(config.generatorUrl, answers)
-      console.log(postRes.id)
+      console.log(postRes)
       console.log('finished. do something')
     }
   }

@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/maccyber/bigfive-web.svg?branch=master)](https://travis-ci.org/maccyber/bigfive-web)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Coverage Status](https://coveralls.io/repos/github/maccyber/bigfive-web/badge.svg)](https://coveralls.io/github/maccyber/bigfive-web)
 [![Code Climate](https://codeclimate.com/github/maccyber/bigfive-web/badges/gpa.svg)](https://codeclimate.com/github/maccyber/bigfive-web)
 
 # bigfive-web
@@ -9,7 +8,7 @@ Website for five factor model of personality based on work at https://github.com
 
 Using [next.js](https://github.com/zeit/next.js) framework and [micro](https://github.com/zeit/micro) services: 
   * [micro-bigfive-questions](https://github.com/maccyber/micro-bigfive-questions)
-  * [micro-bigfive-results-generator](https://github.com/maccyber/micro-bigfive-results-generator)
+  * [micro-bigfive-generator](https://github.com/maccyber/micro-bigfive-generator)
   * [micro-bigfive-evaluator](https://github.com/maccyber/micro-bigfive-evaluator)
   * [micro-bigfive-results](https://github.com/maccyber/micro-bigfive-results)
   * [micro-bigfive-save](https://github.com/maccyber/micro-bigfive-save)

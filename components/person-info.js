@@ -4,7 +4,7 @@ const countries = require('country-list')()
 export default ({loading}) => (
   <div>
     <form>
-    <p className='question'>Information</p>
+      <p className='question'>Information</p>
     By taking the test you are agreeing that the input you provide will be saved and used for statistics.
     <ul>
       <li className='infoText'>
@@ -20,32 +20,32 @@ export default ({loading}) => (
         Your spontaneous answer is usually the most accurate.
       </li>
     </ul>
-    <p className='question'>Age</p>
-    <input name='age' className='age' type='text' placeholder='Age' pattern="\d*" maxLength='2' min='10' max='100' />
-    <p className='question'>Gender</p>
-    <span className='choiseBox'>
-      <i name='female' className='material-icons checked-female'>radio_button_checked</i>
-      <span className='choiseText'>Female</span>
-      <i name='male' className='material-icons checked-male'>radio_button_unchecked</i>
-      <span className='choiseText'>Male</span>
-    </span>
-    <span className='choiseBox'>
-      <p className='question'>Nationality</p>
-      <select className='countries'>
-        {countries.getData().map(country => {
-          return (
-            <option key={country.code} value={country.code}>{country.name}</option>
-          )
-        })}
-      </select>
-    </span>
-    <span>
-      <p style={{marginTop: '50px'}}>
-        <button className='navButton' type='submit'>
-          <i className='material-icons' style={{ fontSize: '40px' }}>navigate_next</i>
-        </button>
-      </p>
-    </span>
+      <p className='question'>Age</p>
+      <input name='age' className='age' type='text' placeholder='Age' pattern='\d*' maxLength='2' min='10' max='100' />
+      <p className='question'>Gender</p>
+      <span className='choiseBox'>
+        <i name='female' className='material-icons checked-female'>radio_button_checked</i>
+        <span className='choiseText'>Female</span>
+        <i name='male' className='material-icons checked-male'>radio_button_unchecked</i>
+        <span className='choiseText'>Male</span>
+      </span>
+      <span className='choiseBox'>
+        <p className='question'>Nationality</p>
+        <select className='countries'>
+          {countries.getData().map(country => {
+            return (
+              <option key={country.code} value={country.code}>{country.name}</option>
+            )
+          })}
+        </select>
+      </span>
+      <span>
+        <p style={{marginTop: '50px'}}>
+          <button className='navButton' type='submit'>
+            <i className='material-icons' style={{ fontSize: '40px' }}>navigate_next</i>
+          </button>
+        </p>
+      </span>
     </form>
     <style>
       {`
