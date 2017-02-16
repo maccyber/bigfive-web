@@ -22,7 +22,7 @@
   "now": {
     "alias": "bigfive.maccyber.io",
     "engines": {
-      "node": "7.0.0"
+      "node": "7.5.0"
     }
   },
   "scripts": {
@@ -33,6 +33,9 @@
   "dependencies": {
     "axios": "0.15.3",
     "country-list": "1.1.0",
-    "next": "1.2.3"
+    "next": "2.0.0-beta.27",
+    "react": "15.4.2",
+    "react-dom": "15.4.2",
+    "react-d3": "0.4.0"
   }
 }

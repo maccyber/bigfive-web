@@ -1,4 +1,5 @@
 import React from 'react'
+import Router from 'next/router'
 import config from '../config'
 import getData from '../lib/get-data'
 import postData from '../lib/post-data'
@@ -79,8 +80,8 @@ export default class TheTest extends React.Component {
       }
       console.log(JSON.stringify(answers, null, 2))
       const postRes = await postData(config.generatorUrl, answers)
-      console.log(postRes)
-      console.log('finished. do something')
+      console.log(postRes.id)
+      Router.push(`/results?id=${postRes.id}`)
     }
   }
 
