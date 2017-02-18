@@ -9,7 +9,7 @@ export default class theResults extends React.Component {
 //    const data = await getData(`${config.generatorUrl}?id=${id}`)
 //    return { data }
 //  }
-    render () {
+  render () {
     return (
       <Page pageTitle='BigFive Personality Test - Results'>
         <Results results={this.props.data} urlId={this.props.url.query.id} />

@@ -70,9 +70,10 @@ export default class TheTest extends React.Component {
       console.log('To be posted')
       this.state.radios.shift()
       const answers = {
-        timeElapsed: Math.round((this.state.now - Date.now()) / 1000),
+        timeElapsed: Math.round((Date.now() - this.state.now) / 1000),
+        dateStamp: Date.now(),
         ip: this.props.ip,
-        browserAgent: this.props.browserAgent,
+        userAgent: this.props.userAgent,
         lang: this.state.lang,
         test: this.state.testInfo.test,
         totalQuestions: this.state.totalQuestions,
