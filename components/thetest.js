@@ -10,6 +10,7 @@ import Languagebar from './languagebar'
 import Loading from './loading'
 import Navbuttons from './navbuttons'
 import TimerExample from './timer'
+import PersonInfo from './info'
 
 export default class TheTest extends React.Component {
   constructor (props) {
@@ -23,17 +24,38 @@ export default class TheTest extends React.Component {
       lang: config.defaultLanguage,
       choosenTest: props.test || config.defaultTest,
       submitDisabled: true,
-      now: Date.now()
+      now: Date.now(),
+      age: '',
+      gender: 'Male',
+      country: '',
+      buttonSubmitDisabled: true,
+      hideMain: true
     }
     this.handleRadioChange = this.handleRadioChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.switchLanguage = this.switchLanguage.bind(this)
     this.prevPage = this.prevPage.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.buttonSubmit = this.buttonSubmit.bind(this)
   }
 
   async componentDidMount () {
     const data = await getData(`${config.dataUrl}?lang=${this.state.lang}&testType=${this.state.choosenTest}&limit=${config.defaultLimit}`)
     this.setState({ ...data, loading: false })
+  }
+
+  async handleChange (e) {
+    const name = e.target.name || e.target.getAttribute('name')
+    const value = e.target.value || e.target.getAttribute('value')
+    await this.setState({ [name]: value })
+    if (this.state.country && this.state.age) {
+      this.setState({ buttonSubmitDisabled: false })
+    }
+  }
+
+  buttonSubmit (e) {
+    e.preventDefault()
+    this.setState({ hideMain: false })
   }
 
   handleRadioChange (e) {
@@ -67,11 +89,15 @@ export default class TheTest extends React.Component {
       this.setState({ ...data, submitDisabled: true })
       window.scrollTo(0, 0) // Scrolls to top of page
     } else {
-      console.log('To be posted')
+      this.setState({ submitDisabled: true, loading: true, hideMain: true })
+      window.scrollTo(0, 0)
       this.state.radios.shift()
       const answers = {
         timeElapsed: Math.round((Date.now() - this.state.now) / 1000),
         dateStamp: Date.now(),
+        age: this.state.age,
+        country: this.state.country,
+        gender: this.state.gender,
         ip: this.props.ip,
         userAgent: this.props.userAgent,
         lang: this.state.lang,
@@ -79,73 +105,59 @@ export default class TheTest extends React.Component {
         totalQuestions: this.state.totalQuestions,
         answers: this.state.radios
       }
-      console.log(JSON.stringify(answers, null, 2))
+      // console.log(JSON.stringify(answers, null, 2))
       const postRes = await postData(config.generatorUrl, answers)
-      console.log(postRes.id)
+      // console.log(postRes.id)
       Router.push(`/results?id=${postRes.id}`)
     }
   }
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <TimerExample start={this.state.now} />
-          <Languagebar switchLanguage={this.switchLanguage} selectedLanguage={this.state.lang} languages={this.state.languages} />
-        </div>
-        <Progressbar progress={this.state.percentDone} />
+      <div>
         <Loading loading={this.state.loading} />
-        {this.state.questions.map(q => {
-          return (
-            <Questions key={'Q' + q.id} {...q} radioSelected={this.state.radios} handleRadioChange={this.handleRadioChange} />
-          )
-        })}
-        <Navbuttons prevPage={this.prevPage} previous={this.state.previous} submitDisabled={this.state.submitDisabled} />
-        <style>{`
-          .navButton {
-            background-color: #94d696;
-            border-radius: 5px;
-            border: transparent;
-            color: white;
-            margin-right: 10px;
-          }
-          .navButtonBack {
-            background-color: #d68e8e;
-          }
-          .navButton:disabled {
-            background-color: #d2d2d2;
-          }
-          .question {
-            font-size: 28px;
-          }
-          .choiseText {
-            line-height: 24px;
-            padding: 4px;
-            vertical-align: top;
-          }
-          .choiseBox:hover {
-            cursor: pointer;
-          }
-          .checked-1 {
-            color: #e48585;
-          }
-          .checked-2 {
-            color: #e0b8b8;
-          }
-          .checked-3 {
-            color: #d3d898;
-          }
-          .checked-4 {
-            color: #bddebe;
-          }
-          .checked-5 {
-            color: #94d695;
-          }
-          .timer {
-            float: right;
-          }
-      `}</style>
-      </form>
+        <PersonInfo age={this.state.age} gender={this.state.gender} buttonSubmitDisabled={this.state.buttonSubmitDisabled} handleChange={this.handleChange} buttonSubmit={this.buttonSubmit} hideMain={this.state.hideMain} loading={this.state.loading} />
+        <div id='main' style={{display: this.state.hideMain ? 'none' : 'block'}} >
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <TimerExample start={this.state.now} />
+              <Languagebar switchLanguage={this.switchLanguage} selectedLanguage={this.state.lang} languages={this.state.languages} />
+            </div>
+            <Progressbar progress={this.state.percentDone} />
+            {
+                this.state.questions.map(q =>
+                  <Questions key={'Q' + q.id} {...q} radioSelected={this.state.radios} handleRadioChange={this.handleRadioChange} />
+                )
+              }
+            <Navbuttons prevPage={this.prevPage} previous={this.state.previous} submitDisabled={this.state.submitDisabled} />
+            <style>
+              {`
+                .choiseBox:hover {
+                  cursor: pointer;
+                }
+                .checked-1 {
+                  color: #e48585;
+                }
+                .checked-2 {
+                  color: #e0b8b8;
+                }
+                .checked-3 {
+                  color: #d3d898;
+                }
+                .checked-4 {
+                  color: #bddebe;
+                }
+                .checked-5 {
+                  color: #94d695;
+                }
+                .timer {
+                  float: right;
+                }
+              `}
+            </style>
+          </form>
+        </div>
+      </div>
     )
   }
 }

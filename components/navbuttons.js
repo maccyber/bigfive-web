@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({prevPage, previous, submitDisabled}) => (
+export default ({ prevPage, previous, submitDisabled }) => (
   <p>
     <button type='button' className='navButton navButtonBack' onClick={prevPage} disabled={!previous}>
       <i className='material-icons' style={{ fontSize: '40px' }}>

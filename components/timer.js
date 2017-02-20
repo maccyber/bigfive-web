@@ -19,6 +19,8 @@ export default class Timer extends React.Component {
   }
   render () {
     let seconds = Math.round(this.state.elapsed / 1000)
-    return <div className='timer'>Started <b>{seconds} seconds</b> ago</div>
+    return <div className='timer'>
+      Started <b>{seconds} seconds</b> ago
+    </div>
   }
 }

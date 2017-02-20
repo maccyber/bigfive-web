@@ -3,7 +3,18 @@
   "version": "1.0.0",
   "description": "Website for bigfive personality test using next.js",
   "license": "ISC",
-  "author": "",
+  "author": {
+    "name": "Jonas Enge",
+    "email": "jonas.enge@gmail.com",
+    "url": "https://github.com/maccyber"
+  },
+  "contributors": [
+    {
+      "name": "Geir Gåsodden",
+      "email": "geir.gasodden@pythonia.no",
+      "url": "https://github.com/zrrrzzt"
+    }
+  ],
   "keywords": [
     "bigfive",
     "personality",
@@ -20,10 +31,7 @@
     "standard": "8.6.0"
   },
   "now": {
-    "alias": [
-      "no.bigfive.maccyber.io",
-      "bigfive.maccyber.io"
-    ],
+    "alias": "bigfive.maccyber.io",
     "engines": {
       "node": "7.0.0"
     }

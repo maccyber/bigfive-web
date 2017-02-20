@@ -32,8 +32,13 @@ npm run dev
 ```
 
 ## License
+
 [MIT](LICENSE)
 
 ## About
 
 Created by [zrrzzt](https://github.com/zrrrzzt) and [maccyber](https://github.com/maccyber)
+
+![alt text](https://robots.kebabstudios.party/zrrrzzt.png "Robohash image of zrrrzzt") 
+![alt text](https://robots.kebabstudios.party/maccyber.png "Robohash image of maccyber")
+
