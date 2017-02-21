@@ -17,7 +17,7 @@ Written in [nodejs](https://nodejs.org) using [next.js](https://github.com/zeit/
   * [micro-bigfive-results](https://github.com/maccyber/micro-bigfive-results)
   * [micro-bigfive-save](https://github.com/maccyber/micro-bigfive-save)
 
-# Installation
+## Installation
 
 Download and install [nodejs](https://nodejs.org) and [git](https://git-scm.com/downloads)
 
