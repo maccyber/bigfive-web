@@ -38,6 +38,14 @@ See https://bigfive.maccyber.io (not finished)
 $ now https://github.com/maccyber/bigfive-web
 ```
 
+## Deploy using [Docker](https://www.docker.com/)
+
+Install [Docker](https://www.docker.com/)
+
+```sh
+docker run -d --name bigfive-web maccyber/maccyber/bigfive-web
+```
+
 ## Development
 
 ```sh
