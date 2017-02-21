@@ -55,6 +55,10 @@ npm i
 npm run dev
 ```
 
+## Screenshot
+
+![alt text](http://bildr.no/image/bkozazVQ.jpeg "BigFive")
+
 ## License
 
 [MIT](LICENSE)
