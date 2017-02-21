@@ -10,7 +10,7 @@ See it live @ https://bigfive.maccyber.io
 
 Questions and evaluation is picked from [ipip.ori.org](http://ipip.ori.org)
 
-Using [next.js](https://github.com/zeit/next.js) framework and [micro](https://github.com/zeit/micro) services: 
+Written in [nodejs](https://nodejs.org) using [next.js](https://github.com/zeit/next.js) framework and following [micro](https://github.com/zeit/micro) services: 
   * [micro-bigfive-questions](https://github.com/maccyber/micro-bigfive-questions)
   * [micro-bigfive-generator](https://github.com/maccyber/micro-bigfive-generator)
   * [micro-bigfive-evaluator](https://github.com/maccyber/micro-bigfive-evaluator)
@@ -27,6 +27,7 @@ cd bigfive-web
 npm install
 npm run dev
 ```
+Open web-browser at http://localhost:3000
 
 ## Example
 See https://bigfive.maccyber.io (not finished)
