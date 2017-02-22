@@ -4,18 +4,27 @@
 
 # bigfive-web
 
-Website for five factor model of personality based on work from https://github.com/kholia/IPIP-NEO-PI
+Website for five factor model of personality based on work from [IPIP-NEO-PI](https://github.com/kholia/IPIP-NEO-PI).
+
+Tests and evaluation is gathered from [ipip.ori.org](http://ipip.ori.org).
 
 See it live @ https://bigfive.maccyber.io
 
-Questions and evaluation is picked from [ipip.ori.org](http://ipip.ori.org)
-
 Written in [nodejs](https://nodejs.org) using [next.js](https://github.com/zeit/next.js) framework and following [micro](https://github.com/zeit/micro) services: 
-  * [micro-bigfive-questions](https://github.com/maccyber/micro-bigfive-questions)
-  * [micro-bigfive-generator](https://github.com/maccyber/micro-bigfive-generator)
-  * [micro-bigfive-evaluator](https://github.com/maccyber/micro-bigfive-evaluator)
-  * [micro-bigfive-results](https://github.com/maccyber/micro-bigfive-results)
-  * [micro-bigfive-save](https://github.com/maccyber/micro-bigfive-save)
+  * [micro-bigfive-questions](https://github.com/maccyber/micro-bigfive-questions) - *Serves questions*
+  * [micro-bigfive-evaluator](https://github.com/maccyber/micro-bigfive-evaluator) - *Evaulates answers*
+  * [micro-bigfive-generator](https://github.com/maccyber/micro-bigfive-generator) - *Generates results with evaluator and results and saves them.*
+  * [micro-bigfive-results](https://github.com/maccyber/micro-bigfive-results) - *Serves the description of the results*
+  * [micro-bigfive-save](https://github.com/maccyber/micro-bigfive-save) - *Saves the results*
+
+The whole system is a framework primarily for personality tests, but can easily be extended with other types of tests.
+
+Right now it supports these tests:
+
+* Johnson's (2014) 120-item IPIP NEO-PI-R
+* Donnellan et al.'s (2006) highly abridged B5 factor markers ("Mini-IPIP")
+* Costa and McCrae's (1992) NEO-PI-R Domains (50 and 100 questions)
+* Lee and Ashton's (2004) HEXACO-PI (soon)
 
 ## Installation
 
