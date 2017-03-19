@@ -2,7 +2,8 @@
   "name": "next-bigfive-web",
   "version": "1.0.0",
   "description": "Website for bigfive personality test using next.js",
-  "license": "ISC",
+  "license": "MIT",
+  "private": true,
   "author": {
     "name": "Jonas Enge",
     "email": "jonas.enge@gmail.com",
@@ -22,29 +23,40 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/maccyber/bigfive-web.git"
+    "url": "https://github.com/maccyber/bigfive-web.git"
   },
   "bugs": {
-    "url": "http://github.com/maccyber/bigfive-web/issues"
+    "url": "https://github.com/maccyber/bigfive-web/issues"
   },
+  "homepage": "https://github.com/maccyber/bigfive-web",
   "devDependencies": {
-    "standard": "8.6.0"
+    "ava": "0.18.2",
+    "coveralls": "2.12.0",
+    "nsp": "2.6.3",
+    "nyc": "10.1.2",
+    "standard": "9.0.2"
   },
   "now": {
     "alias": "bigfive.maccyber.io",
-    "engines": {
-      "node": "7.0.0"
-    }
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "type": "npm"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "standard && nsp check && ava",
+    "test-offline": "standard && ava",
+    "coverage": "nyc ava",
+    "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls",
+    "standard-fix": "standard --fix"
   },
   "dependencies": {
     "axios": "0.15.3",
     "country-list": "1.1.0",
-    "next": "2.0.0-beta.27",
+    "next": "2.0.0-beta.39",
     "react": "15.4.2",
     "react-d3": "0.4.0",
     "react-dom": "15.4.2"

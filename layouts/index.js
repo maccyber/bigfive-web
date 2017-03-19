@@ -123,7 +123,7 @@ export default ({pageTitle, children}) => (
         </div>
       </div>
       <div className='footer'>
-        <a href='https://github.com/maccyber/bigfive-web'>Bigfive-web</a><br/>
+        <a href='https://github.com/maccyber/bigfive-web'>Bigfive-web</a><br />
         Made with ❤ by <a href='https://github.com/zrrrzzt/'>zrrrzzt</a> and <a href='https://github.com/maccyber'>maccyber</a>
       </div>
     </div>
