@@ -28,7 +28,7 @@
     "url": "http://github.com/maccyber/bigfive-web/issues"
   },
   "devDependencies": {
-    "standard": "8.6.0"
+    "standard": "9.0.2"
   },
   "now": {
     "alias": "bigfive.maccyber.io",
