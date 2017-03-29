@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-export default ({pageTitle, children}) => (
+export default ({pageTitle, isIE11, children}) => (
   <div>
     <Head>
       <meta charSet='utf-8' />
@@ -9,6 +9,10 @@ export default ({pageTitle, children}) => (
       <link href='https://fonts.googleapis.com/css?family=Oswald|Rubik:300' rel='stylesheet' />
       <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
       <title>{pageTitle}</title>
+      <script src='static/ga.js' />
+      {isIE11 ? (
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.auto.js' />
+      ) : null}
       <link rel='apple-touch-icon' sizes='152x152' href='static/apple-touch-icon.png' />
       <link rel='icon' type='image/png' href='static/favicon-32x32.png' sizes='32x32' />
       <link rel='icon' type='image/png' href='static/favicon-16x16.png' sizes='16x16' />
@@ -27,10 +31,14 @@ export default ({pageTitle, children}) => (
             .choiseBox {
               display: block;
             }
+            .footer {
+              width: 90% !important;
+            }
           }
           .footer {
             position: absolute;
             padding-top: 20px;
+            padding-bottom: 10px;
             color: #828282;
             width: 85%;
             text-align: center;
@@ -123,7 +131,7 @@ export default ({pageTitle, children}) => (
         </div>
       </div>
       <div className='footer'>
-        <a href='https://github.com/maccyber/bigfive-web'>Bigfive-web</a><br />
+        <a href='https://github.com/maccyber/bigfive-web'>Bigfive-web</a> - We need <a href='https://github.com/maccyber/bigfive-web'>help</a> with translations<br/>
         Made with ❤ by <a href='https://github.com/zrrrzzt/'>zrrrzzt</a> and <a href='https://github.com/maccyber'>maccyber</a>
       </div>
     </div>

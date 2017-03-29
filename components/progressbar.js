@@ -20,7 +20,8 @@ export default ({ progress }) => (
         .bar {
           height: 20px;
           background-color: #94d696;
-       }
+          transition: width 2s;
+        }
       `}
     </style>
   </div>

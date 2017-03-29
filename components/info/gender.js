@@ -6,8 +6,8 @@ export default ({ handleChange, gender }) => (
       Gender
     </p>
     <span className='choiseBox' name='gender' value={gender} onClick={handleChange}>
-      <i name='gender' className='material-icons checked-male' value='Male'>{gender === 'Male' ? 'radio_button_checked' : 'radio_button_unchecked'}</i> Male
-      <i name='gender' className='material-icons checked-female' value='Female'>{gender === 'Female' ? 'radio_button_checked' : 'radio_button_unchecked'}</i> Female
+      <i name='gender' className='material-icons checked-male' value='Male'>{gender === 'Male' ? 'radio_button_checked' : 'radio_button_unchecked'}</i> <label name='gender' value='Male'>Male</label>
+      <i name='gender' className='material-icons checked-female' value='Female'>{gender === 'Female' ? 'radio_button_checked' : 'radio_button_unchecked'}</i> <label name='gender' value='Female'>Female</label>
     </span>
     <style>
       {`

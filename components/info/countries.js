@@ -6,8 +6,14 @@ export default ({ handleChange, country }) => (
     <p className='question'>
       Nationality
     </p>
-    <select name='country' className='countries' onChange={handleChange}>
-      {countries.getData().map(c => <option key={c.code} value={c.code}>{c.name}</option>)}
+    <select name='country' className='countries' value={country} onChange={handleChange}>
+      {
+        countries.getData().map(c =>
+          <option key={c.code} value={c.code}>
+            {c.name}
+          </option>
+        )
+      }
     </select>
     <style>
       {`
@@ -15,6 +21,7 @@ export default ({ handleChange, country }) => (
           font-size: 24px;
           background-color: #fff;
           color: #828282;
+          width: 200px;
         }
       `}
     </style>

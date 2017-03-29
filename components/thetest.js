@@ -22,14 +22,15 @@ export default class TheTest extends React.Component {
       languages: [],
       radios: [],
       lang: config.defaultLanguage,
-      choosenTest: props.test || config.defaultTest,
+      choosenTest: config.defaultTest,
       submitDisabled: true,
       now: Date.now(),
       age: '',
       gender: 'Male',
-      country: '',
+      country: 'GB',
       buttonSubmitDisabled: true,
-      hideMain: true
+      hideMain: true,
+      percent: 0
     }
     this.handleRadioChange = this.handleRadioChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -37,11 +38,14 @@ export default class TheTest extends React.Component {
     this.prevPage = this.prevPage.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.buttonSubmit = this.buttonSubmit.bind(this)
+    this.switchTest = this.switchTest.bind(this)
   }
 
   async componentDidMount () {
+    const ipCountry = await getData(`${config.ipCountryUrl}${this.props.ip}`)
+    const country = ipCountry.countryCode || 'NO'
     const data = await getData(`${config.dataUrl}?lang=${this.state.lang}&testType=${this.state.choosenTest}&limit=${config.defaultLimit}`)
-    this.setState({ ...data, loading: false })
+    this.setState({ ...data, loading: false, country: country })
   }
 
   async handleChange (e) {
@@ -55,18 +59,26 @@ export default class TheTest extends React.Component {
 
   buttonSubmit (e) {
     e.preventDefault()
+    window.scrollTo(0, 0)
     this.setState({ hideMain: false })
   }
 
   handleRadioChange (e) {
     let radioStore = this.state.radios
     const selectedName = parseInt(e.currentTarget.getAttribute('name'))
+    const percent = Math.round(selectedName / parseInt(this.state.totalQuestions) * 100)
     const selectedValue = parseInt(e.currentTarget.getAttribute('value'))
     const {domain, facet} = this.state.questions.find(c => c.id === selectedName)
     radioStore[selectedName] = {score: selectedValue, domain: domain, facet: facet}
     this.setState({radios: radioStore})
     const allChecked = isAllChecked(radioStore, this.state.from, this.state.to)
-    this.setState({submitDisabled: !allChecked})
+    this.setState({submitDisabled: !allChecked, percent: percent})
+  }
+
+  async switchTest (e) {
+    const selectedTest = e.target.getAttribute('id')
+    const data = await getData(`${config.dataUrl}?page=1&lang=en&testType=${selectedTest}&limit=${config.defaultLimit}`)
+    this.setState({ ...data, lang: 'en', choosenTest: selectedTest })
   }
 
   async switchLanguage (e) {
@@ -86,7 +98,8 @@ export default class TheTest extends React.Component {
     e.preventDefault()
     if (this.state.next) {
       const data = await getData(`${this.state.next}&lang=${this.state.lang}&testType=${this.state.choosenTest}&limit=${config.defaultLimit}`)
-      this.setState({ ...data, submitDisabled: true })
+      const allChecked = isAllChecked(this.state.radios, data.from, data.to)
+      this.setState({ ...data, submitDisabled: !allChecked })
       window.scrollTo(0, 0) // Scrolls to top of page
     } else {
       this.setState({ submitDisabled: true, loading: true, hideMain: true })
@@ -116,14 +129,14 @@ export default class TheTest extends React.Component {
     return (
       <div>
         <Loading loading={this.state.loading} />
-        <PersonInfo age={this.state.age} gender={this.state.gender} buttonSubmitDisabled={this.state.buttonSubmitDisabled} handleChange={this.handleChange} buttonSubmit={this.buttonSubmit} hideMain={this.state.hideMain} loading={this.state.loading} />
+        <PersonInfo age={this.state.age} gender={this.state.gender} buttonSubmitDisabled={this.state.buttonSubmitDisabled} handleChange={this.handleChange} buttonSubmit={this.buttonSubmit} hideMain={this.state.hideMain} loading={this.state.loading} country={this.state.country} switchTest={this.switchTest} selectedTest={this.state.choosenTest} />
         <div id='main' style={{display: this.state.hideMain ? 'none' : 'block'}} >
           <form onSubmit={this.handleSubmit}>
             <div>
               <TimerExample start={this.state.now} />
               <Languagebar switchLanguage={this.switchLanguage} selectedLanguage={this.state.lang} languages={this.state.languages} />
             </div>
-            <Progressbar progress={this.state.percentDone} />
+            <Progressbar progress={this.state.percent} />
             {
                 this.state.questions.map(q =>
                   <Questions key={'Q' + q.id} {...q} radioSelected={this.state.radios} handleRadioChange={this.handleRadioChange} />
