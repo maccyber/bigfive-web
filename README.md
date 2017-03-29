@@ -16,6 +16,7 @@ Written in [nodejs](https://nodejs.org) using [next.js](https://github.com/zeit/
   * [micro-bigfive-generator](https://github.com/maccyber/micro-bigfive-generator) - *Generates results with evaluator and results and saves them.*
   * [micro-bigfive-results](https://github.com/maccyber/micro-bigfive-results) - *Serves the description of the results*
   * [micro-bigfive-save](https://github.com/maccyber/micro-bigfive-save) - *Saves the results*
+  * [bigfive-compare](https://github.com/zrrrzzt/bigfive-compare) - *Compare the results with other people or groups*
 
 The whole system is a framework primarily for personality tests, but can easily be extended with other types of tests.
 
