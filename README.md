@@ -8,7 +8,7 @@ Website for five factor model of personality based on work from [IPIP-NEO-PI](ht
 
 Tests and evaluation is gathered from [ipip.ori.org](http://ipip.ori.org).
 
-See it live @ https://bigfive.maccyber.io
+See it live @ [bigfive.world](https://bigfive.world)
 
 Written in [nodejs](https://nodejs.org) using [next.js](https://github.com/zeit/next.js) framework and following [micro](https://github.com/zeit/micro) services: 
   * [micro-bigfive-questions](https://github.com/maccyber/micro-bigfive-questions) - *Serves questions*
@@ -38,13 +38,10 @@ npm run dev
 ```
 Open web-browser at http://localhost:3000
 
-## Example
-See https://bigfive.maccyber.io (not finished)
-
 ## Deploy using [Now](https://zeit.co/now)
 
 ```sh
-$ now https://github.com/maccyber/bigfive-web
+$ now https://github.com/maccyber/bigfive-web --npm
 ```
 
 ## Deploy using [Docker](https://www.docker.com/)
@@ -66,7 +63,7 @@ npm run dev
 
 ## Screenshot
 
-![alt text](http://bildr.no/image/bkozazVQ.jpeg "BigFive")
+![BigFive screendump](http://bildr.no/image/bkozazVQ.jpeg "BigFive")
 
 ## License
 
@@ -74,8 +71,8 @@ npm run dev
 
 ## About
 
-Created by [zrrzzt](https://github.com/zrrrzzt) and [maccyber](https://github.com/maccyber)
+Created with <3 by [zrrzzt](https://github.com/zrrrzzt) and [maccyber](https://github.com/maccyber)
 
-![alt text](https://robots.kebabstudios.party/zrrrzzt.png "Robohash image of zrrrzzt") 
-![alt text](https://robots.kebabstudios.party/maccyber.png "Robohash image of maccyber")
+![Robohash image of zrrrzzt](https://robots.kebabstudios.party/zrrrzzt.png "Robohash image of zrrrzzt") 
+![Robohash image of maccyber](https://robots.kebabstudios.party/maccyber.png "Robohash image of maccyber")
 
