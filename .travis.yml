@@ -3,4 +3,3 @@ node_js:
   - "7"
 after_success:
   - npm run coveralls
-  - test $TRAVIS_BRANCH = "master" && npm i -g now && now -t=$NOW_TOKEN && now -t=$NOW_TOKEN alias

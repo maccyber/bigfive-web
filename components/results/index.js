@@ -76,7 +76,7 @@ export default class Results extends React.Component {
                   </span>
                 </p>
                 <p><span dangerouslySetInnerHTML={{__html: d.text}} /> </p>
-                <p>Your level of <i>{d.title.toLowerCase()}</i> is <b>{d.scoreText}</b></p>
+                <p>Your level of <i>{d.title.toLowerCase()}</i> is <b>{d.scoreText} ({d.score}/{d.count * 5})</b></p>
                 <div style={{ display: d.facets.length > 1 ? 'block' : 'none' }} >
                   <BarChart
                     data={[{values: Object.assign(d.facets.map(s => ({x: `${s.title} (${s.score})`, y: s.score})))}]}
@@ -90,7 +90,7 @@ export default class Results extends React.Component {
                     <span key={f.title}>
                       <p className='title2'>{f.title}</p>
                       <p><span dangerouslySetInnerHTML={{__html: f.text}} /></p>
-                      <p>Your level of <i>{f.title.toLowerCase()}</i> is <b>{f.scoreText}</b></p>
+                      <p>Your level of <i>{f.title.toLowerCase()}</i> is <b>{f.scoreText} ({f.score}/{f.count * 6})</b></p>
                     </span>
                   )
                 }
@@ -103,7 +103,26 @@ export default class Results extends React.Component {
                 font-size: 23px;
                 margin-bottom: 10px;
               }
-              @media (max-width:1300px) {
+              .rd3-barchart-bar:nth-child(1) {
+                fill: #ff8888;
+              }
+              .rd3-barchart-bar:nth-child(2) {
+                fill: #88d6ff;
+              }
+              .rd3-barchart-bar:nth-child(3) {
+                fill: #fff188;
+              }
+              .rd3-barchart-bar:nth-child(4) {
+                fill: #98ff88;
+              }
+              .rd3-barchart-bar:nth-child(5) {
+                fill: #ee88ff;
+                box-shadow: 7px 10px 5px 0px rgba(0,0,0,0.75);
+              }
+              .rd3-barchart-bar:nth-child(6) {
+                fill: #a988ff;
+              }
+              @media (min-width:681px) and (max-width:1300px) {
                 .rd3-barchart-xaxis text {
                   text-anchor: start;
                   transform: rotate(50deg);
@@ -114,6 +133,18 @@ export default class Results extends React.Component {
                 }
                 .rd3-barchart-xaxis line {
                   transform: scaleY(4);
+                }
+              }
+              @media (max-width: 680px) {
+                .rd3-barchart-xaxis text {
+                  writing-mode: tb;
+                  text-anchor: start;
+                }
+                .rd3-barchart-xaxis line {
+                  transform: scaleY(0);
+                }
+                .rd3-chart {
+                  padding-bottom: 200px;
                 }
               }
             `}
