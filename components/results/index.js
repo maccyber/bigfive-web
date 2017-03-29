@@ -90,7 +90,7 @@ export default class Results extends React.Component {
                     <span key={f.title}>
                       <p className='title2'>{f.title}</p>
                       <p><span dangerouslySetInnerHTML={{__html: f.text}} /></p>
-                      <p>Your level of <i>{f.title.toLowerCase()}</i> is <b>{f.scoreText} ({f.score}/{f.count * 6})</b></p>
+                      <p>Your level of <i>{f.title.toLowerCase()}</i> is <b>{f.scoreText} ({f.score}/{f.count * 5})</b></p>
                     </span>
                   )
                 }

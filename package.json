@@ -37,7 +37,11 @@
     "standard": "9.0.2"
   },
   "now": {
-    "alias": "bigfive.maccyber.io",
+    "alias": [
+      "bigfive.maccyber.io",
+      "bigfive.world",
+      "no.bigfive.maccyber.io"
+    ],
     "env": {
       "NODE_ENV": "production"
     },
