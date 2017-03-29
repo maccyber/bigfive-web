@@ -61,7 +61,7 @@
   "dependencies": {
     "axios": "0.15.3",
     "country-list": "1.1.0",
-    "next": "2.0.0-beta.39",
+    "next": "2.0.0",
     "react": "15.4.2",
     "react-d3": "0.4.0",
     "react-dom": "15.4.2"
