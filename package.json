@@ -43,6 +43,11 @@
     },
     "type": "npm"
   },
+  "standard": {
+    "ignore": [
+      "/static/ga.js"
+    ]
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
