@@ -2,7 +2,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 [![Code Climate](https://codeclimate.com/github/maccyber/bigfive-web/badges/gpa.svg)](https://codeclimate.com/github/maccyber/bigfive-web)
 
-# WIP Repo is moved to https://github.com/Alheimsins/bigfive-web - see http://bigfive-test.com for demo
+# Repo is moved to https://github.com/Alheimsins/bigfive-web - see http://bigfive-test.com for demo
 
 # bigfive-web
 
