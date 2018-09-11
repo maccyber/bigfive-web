@@ -30,11 +30,11 @@
   },
   "homepage": "https://github.com/maccyber/bigfive-web",
   "devDependencies": {
-    "ava": "0.18.2",
-    "coveralls": "2.12.0",
-    "nsp": "2.6.3",
-    "nyc": "10.1.2",
-    "standard": "9.0.2"
+    "ava": "0.25.0",
+    "coveralls": "3.0.0",
+    "nsp": "3.2.1",
+    "nyc": "11.4.1",
+    "standard": "11.0.0"
   },
   "now": {
     "alias": [
@@ -63,11 +63,11 @@
     "standard-fix": "standard --fix"
   },
   "dependencies": {
-    "axios": "0.15.3",
+    "axios": "0.18.0",
     "country-list": "1.1.0",
-    "next": "2.0.0",
-    "react": "15.4.2",
+    "next": "5.0.0",
+    "react": "16.2.0",
     "react-d3": "0.4.0",
-    "react-dom": "15.4.2"
+    "react-dom": "16.2.0"
   }
 }
